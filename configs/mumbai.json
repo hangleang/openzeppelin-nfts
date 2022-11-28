@@ -1,0 +1,12 @@
+{
+  "output": "build/mumbai/nfts.",
+  "chain": "mumbai",
+  "datasources": [
+    { "startBlock": 0, "module": "erc721"  },
+    { "startBlock": 0, "module": "erc1155" }
+  ],
+  "deploy": [
+    { "type": "hosted-service", "name": "hangleang/nft-mumbai" }
+  ]
+}
+

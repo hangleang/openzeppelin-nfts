@@ -1,0 +1,22 @@
+{
+  "name": "openzeppelin-nft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "graph-compiler --config $CONFIG --include node_modules/@openzeppelin/subgraphs/src/datasources --export-schema --export-subgraph",
+    "build": "graph codegen $SUBGRAPH && graph build $SUBGRAPH",
+    "build:goerli": "CONFIG=configs/goerli.json npm run compile && SUBGRAPH=build/goerli/nfts.subgraph.yaml npm run build",
+    "build:mumbai": "CONFIG=configs/mumbai.json npm run compile && SUBGRAPH=build/mumbai/nfts.subgraph.yaml npm run build",
+    "deploy": "graph deploy --product hosted-service $GRAPH_NAME $SUBGRAPH",
+    "deploy:goerli": "GRAPH_NAME=hangleang/nft-goerli SUBGRAPH=build/goerli/nfts.subgraph.yaml npm run deploy",
+    "deploy:mumbai": "GRAPH_NAME=hangleang/nft-mumbai SUBGRAPH=build/mumbai/nfts.subgraph.yaml npm run deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@amxx/graphprotocol-utils": "^1.1.0",
+    "@openzeppelin/subgraphs": "0.1.8-5"
+  }
+}
